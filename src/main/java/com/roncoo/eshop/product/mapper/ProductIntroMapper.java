@@ -3,6 +3,7 @@ package com.roncoo.eshop.product.mapper;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -12,6 +13,7 @@ import com.roncoo.eshop.product.model.ProductIntro;
 public interface ProductIntroMapper {
 	
 	@Insert("INSERT INTO product_intro(content,product_id) VALUES(#{content},#{productId})")  
+	@Options(useGeneratedKeys = true, keyProperty = "id")
 	public void add(ProductIntro productIntro);
 	
 	@Update("UPDATE product_intro SET content=#{content},product_id=#{productId} WHERE id=#{id}")  

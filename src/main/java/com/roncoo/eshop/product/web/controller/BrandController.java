@@ -58,7 +58,8 @@ public class BrandController {
 	@ResponseBody
 	public Brand findById(Long id){
 		try {
-			return brandService.findById(id);
+			Brand brand=brandService.findById(id);
+			return brand;
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		}

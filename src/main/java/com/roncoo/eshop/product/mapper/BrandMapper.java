@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -15,6 +16,7 @@ import com.roncoo.eshop.product.model.Brand;
 public interface BrandMapper {
 	
 	@Insert("INSERT INTO brand(name,description) VALUES(#{name},#{description})")  
+	@Options(useGeneratedKeys = true, keyProperty = "id")
 	public void add(Brand brand);
 	
 	@Update("UPDATE brand SET name=#{name},description=#{description} WHERE id=#{id}")  
